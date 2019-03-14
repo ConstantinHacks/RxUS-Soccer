@@ -36,10 +36,6 @@ public class Game {
     @SerializedName("Goal Scorers")
     private final String goalScorers;
 
-    public double getUnixTime(){
-        return nd.getTimeStamp();
-    }
-
     public Game(com.constantinkoehler.rxsoccer.models.oid oid, numberDouble nd, String usTeam, String opponentTeam, String competition, String watch, String time, String attendance, int[] result, String venue, String goalScorers) {
         this.oid = oid;
         this.nd = nd;
@@ -52,6 +48,46 @@ public class Game {
         this.result = result;
         this.venue = venue;
         this.goalScorers = goalScorers;
+    }
+
+    public double getUnixTime(){
+        return nd.getTimeStamp();
+    }
+
+    public String getUsTeam() {
+        return usTeam;
+    }
+
+    public String getOpponentTeam() {
+        return opponentTeam;
+    }
+
+    public String getCompetition() {
+        return competition;
+    }
+
+    public String getWatch() {
+        return watch;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getAttendance() {
+        return attendance;
+    }
+
+    public int[] getResult() {
+        return result;
+    }
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public String getGoalScorers() {
+        return goalScorers;
     }
 
 }
