@@ -65,8 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             assert response.body() != null;
                             String responseString = response.body().string();
                             Type gameType = new TypeToken<List<Game>>(){}.getType();
-                            ArrayList<Game> allGames = gson.fromJson(responseString,gameType);
-                            games = allGames.subList(allGames.size() - 21, allGames.size() - 1);
+                            games = gson.fromJson(responseString,gameType);
                             Collections.sort(games);
                             adapter.setGames(games);
                         } catch (IOException e) {

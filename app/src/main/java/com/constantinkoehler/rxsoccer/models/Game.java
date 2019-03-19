@@ -36,6 +36,10 @@ public class Game implements Comparable<Game> {
     @SerializedName("Goal Scorers")
     private final String goalScorers;
 
+    private String opponentCountry;
+
+    private boolean isMatchComplete;
+
     public Game(com.constantinkoehler.rxsoccer.models.oid oid, numberDouble nd, String usTeam, String opponentTeam, String competition, String watch, String time, String attendance, int[] result, String venue, String goalScorers) {
         this.oid = oid;
         this.nd = nd;
@@ -92,6 +96,15 @@ public class Game implements Comparable<Game> {
 
     public String getGoalScorers() {
         return goalScorers;
+    }
+
+    public String getOpponentCountryFlagName() {
+        String regexStr = " U-(\\d+)";
+        return getOpponentTeam().replaceAll(regexStr,"").replace(" ","_").toLowerCase();
+    }
+
+    public boolean isMatchComplete() {
+        return getResult().length != 0;
     }
 
     @Override

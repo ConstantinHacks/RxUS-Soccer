@@ -1,9 +1,12 @@
 package com.constantinkoehler.rxsoccer.Adapters;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.constantinkoehler.rxsoccer.R;
@@ -57,20 +60,28 @@ public class GameAdapter extends BaseAdapter {
         private TextView usTeamNameTV;
         private TextView opponentTeamNameTV;
         private TextView resultTV;
+        private ImageView opponentFlagIV;
+        private Context context;
 
         public GameViewHolder(View view){
             usTeamNameTV = view.findViewById(R.id.usTeamTV);
             opponentTeamNameTV = view.findViewById(R.id.opponentTV);
             resultTV = view.findViewById(R.id.resultTV);
+            opponentFlagIV = view.findViewById(R.id.opponentIV);
+            context = view.getContext();
         }
 
         public void setGameInfo(Game game){
             usTeamNameTV.setText(game.getUsTeam());
             opponentTeamNameTV.setText(game.getOpponentTeam());
-            String usScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[0]) : "";
-            String oppScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[1]) : "";
 
-            String result = String.format("%s - %s",usScore,oppScore);
+            int resourceId = context.getResources().getIdentifier(game.getOpponentCountryFlagName(), "drawable", context.getPackageName());
+            opponentFlagIV.setImageResource(resourceId);
+
+            String usScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[0]) : "-";
+            String oppScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[1]) : "-";
+
+            String result = String.format("%s : %s",usScore,oppScore);
             resultTV.setText(result);
         }
 
