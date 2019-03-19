@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.constantinkoehler.rxsoccer.R;
 import com.constantinkoehler.rxsoccer.models.Game;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +77,7 @@ public class GameAdapter extends BaseAdapter {
             opponentTeamNameTV.setText(game.getOpponentTeam());
 
             int resourceId = context.getResources().getIdentifier(game.getOpponentCountryFlagName(), "drawable", context.getPackageName());
-            opponentFlagIV.setImageResource(resourceId);
+            Picasso.get().load(resourceId).into(opponentFlagIV);
 
             String usScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[0]) : "-";
             String oppScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[1]) : "-";
