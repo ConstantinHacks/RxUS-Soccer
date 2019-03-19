@@ -1,12 +1,9 @@
-package com.constantinkoehler.rxsoccer.MainScreen;
+package com.constantinkoehler.rxsoccer.mainScreen;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.ViewModel;
 import android.util.Log;
-import android.widget.ListView;
 
-import com.constantinkoehler.rxsoccer.Adapters.GameAdapter;
-import com.constantinkoehler.rxsoccer.R;
 import com.constantinkoehler.rxsoccer.models.Game;
 import com.constantinkoehler.rxsoccer.networking.NetworkManager;
 import com.google.gson.Gson;
@@ -14,7 +11,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,23 +19,17 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
-
-    public MainViewModel viewModel;
-    private GameAdapter adapter = new GameAdapter();
-    private ListView gamelist;
+public class MainViewModel extends ViewModel {
     public List<Game> games;
-    private String tag = "MainActivity";
+    private MutableLiveData<List<Game>> gamesList;
+    private String tag = "MainViewModel";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        viewModel = new MainViewModel();
-        gamelist = findViewById(R.id.gameList);
-        gamelist.setAdapter(adapter);
-
-        fetchGameData();
+    public MutableLiveData<List<Game>> getGamesList() {
+        if (gamesList == null) {
+            gamesList = new MutableLiveData<>();
+            fetchGameData();
+        }
+        return gamesList;
     }
 
     public void fetchGameData(){
@@ -67,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                             Type gameType = new TypeToken<List<Game>>(){}.getType();
                             games = gson.fromJson(responseString,gameType);
                             Collections.sort(games);
-                            adapter.setGames(games);
+                            gamesList.setValue(games);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

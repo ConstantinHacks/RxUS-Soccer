@@ -16,6 +16,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:visibility="gone"
             android:src="@drawable/united_states"
             android:layout_width="100dp"
             android:layout_height="50dp" />
@@ -54,6 +55,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/opponentIV"
             tools:src="@drawable/ukraine"
             android:layout_width="100dp"
