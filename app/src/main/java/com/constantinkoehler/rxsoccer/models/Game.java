@@ -2,7 +2,7 @@ package com.constantinkoehler.rxsoccer.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Game {
+public class Game implements Comparable<Game> {
     @SerializedName("_id")
     private final oid oid;
 
@@ -54,6 +54,10 @@ public class Game {
         return nd.getTimeStamp();
     }
 
+    public numberDouble getNd() {
+        return nd;
+    }
+
     public String getUsTeam() {
         return usTeam;
     }
@@ -88,6 +92,18 @@ public class Game {
 
     public String getGoalScorers() {
         return goalScorers;
+    }
+
+    @Override
+    public int compareTo(Game o) {
+        if(this.getNd() == null && o.getNd() != null){
+            return 1;
+        } else if(this.getNd() != null && o.getNd() == null){
+            return -1;
+        } else if(this.getNd() == null && o.getNd() == null){
+            return 0;
+        }
+        return (int) (o.getUnixTime() - this.getUnixTime());
     }
 
 }

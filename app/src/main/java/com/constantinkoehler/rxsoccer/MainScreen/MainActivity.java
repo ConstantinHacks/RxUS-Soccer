@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import okhttp3.Response;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                             Type gameType = new TypeToken<List<Game>>(){}.getType();
                             ArrayList<Game> allGames = gson.fromJson(responseString,gameType);
                             games = allGames.subList(allGames.size() - 21, allGames.size() - 1);
+                            Collections.sort(games);
                             adapter.setGames(games);
                         } catch (IOException e) {
                             e.printStackTrace();

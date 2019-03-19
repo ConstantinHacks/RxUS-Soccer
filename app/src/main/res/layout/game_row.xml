@@ -8,11 +8,17 @@
     android:baselineAligned="false">
 
     <LinearLayout
+        android:orientation="vertical"
         android:id="@+id/usTeamLL"
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_weight="4"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/united_states"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
 
         <TextView
             android:id="@+id/usTeamTV"
@@ -44,7 +50,14 @@
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_weight="4"
+        android:orientation="vertical"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/opponentIV"
+            tools:src="@drawable/ukraine"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
 
         <TextView
             android:id="@+id/opponentTV"
