@@ -1,0 +1,281 @@
+[{
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f1"
+  },
+  "Attendance": "",
+  "Date": "June 11, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "3 PM ET",
+  "Venue": "Auguste Delaune Stadium; Reims",
+  "Watch": "FOX Sports, Telemundo, Fox Sports App",
+  "TimeStamp": {
+    "$numberInt": "1560279600"
+  },
+  "USTeam": "WNT",
+  "Competition": "World Cup",
+  "OpponentTeam": "Thailand"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f2"
+  },
+  "Attendance": "",
+  "Date": "May 27, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "2:30 PM ET",
+  "Venue": "Bielsko-Biala Stadium; Bielsko-Biala, Poland",
+  "Watch": "",
+  "TimeStamp": {
+    "$numberInt": "1558981800"
+  },
+  "USTeam": "U-20 MNT",
+  "Competition": "World Cup",
+  "OpponentTeam": "Nigeria"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f3"
+  },
+  "Attendance": "",
+  "Date": "May 26, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "12 PM ET",
+  "Venue": "Red Bull Arena; Harrison, N.J.",
+  "Watch": "ESPN, UDN",
+  "TimeStamp": {
+    "$numberInt": "1558886400"
+  },
+  "USTeam": "WNT",
+  "Competition": null,
+  "OpponentTeam": "Mexico"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f4"
+  },
+  "Attendance": "",
+  "Date": "March 26, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "8 PM ET",
+  "Venue": "BBVA Compass Stadium; Houston, Texas",
+  "Watch": "ESPN2, UniMas, UDN",
+  "TimeStamp": {
+    "$numberInt": "1553644800"
+  },
+  "USTeam": "MNT",
+  "Competition": null,
+  "OpponentTeam": "Chile"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f5"
+  },
+  "Attendance": "",
+  "Date": "May 24, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "2:30 PM ET",
+  "Venue": "Bielsko-Biala Stadium; Bielsko-Biala, Poland",
+  "Watch": "",
+  "TimeStamp": {
+    "$numberInt": "1558722600"
+  },
+  "USTeam": "U-20 MNT",
+  "Competition": "World Cup",
+  "OpponentTeam": "Ukraine"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f6"
+  },
+  "Attendance": "",
+  "Date": "March 21, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "8 PM ET",
+  "Venue": "Orlando City Stadium; Orlando, Fla.",
+  "Watch": "ESPN2, UniMas, UDN",
+  "TimeStamp": {
+    "$numberInt": "1553212800"
+  },
+  "USTeam": "MNT",
+  "Competition": null,
+  "OpponentTeam": "Ecuador"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f7"
+  },
+  "Date": "March 5, 2019",
+  "Result": ["1", "0"],
+  "Venue": "Raymond James Stadium, Tampa, Fla.",
+  "Attendance": "14,009",
+  "Goal Scorers": "Heath",
+  "OpponentTeam": "Brazil",
+  "USTeam": "WNT",
+  "Competition": "SheBelieves Cup"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f8"
+  },
+  "Attendance": "",
+  "Date": "May 30, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "2:30 PM ET",
+  "Venue": "Tychy Stadium; Tychy, Poland",
+  "Watch": "",
+  "TimeStamp": {
+    "$numberInt": "1559241000"
+  },
+  "USTeam": "U-20 MNT",
+  "Competition": "World Cup",
+  "OpponentTeam": "Qatar"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471f9"
+  },
+  "Date": "March 5, 2019",
+  "Result": ["4", "0"],
+  "Venue": "La Manga Club; Cartagena, Spain",
+  "Attendance": "",
+  "Goal Scorers": "Bell, Yates, Morris, Doms",
+  "OpponentTeam": "Sweden U-19",
+  "USTeam": "U-20 WNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471fa"
+  },
+  "Date": "March 3, 2019",
+  "Result": ["2", "3"],
+  "Venue": "La Manga Club; Cartagena, Spain",
+  "Attendance": "",
+  "Goal Scorers": "D'Aquila, Dyke",
+  "OpponentTeam": "France U-19",
+  "USTeam": "U-20 WNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471fb"
+  },
+  "Attendance": "",
+  "Date": "June 16, 2019",
+  "Goal Scorers": "",
+  "Result": [],
+  "Time": "12 PM ET",
+  "Venue": "Parc des Princes; Paris",
+  "Watch": "FOX Sports, Telemundo, Fox Sports App",
+  "TimeStamp": {
+    "$numberInt": "1560700800"
+  },
+  "USTeam": "WNT",
+  "Competition": "World Cup",
+  "OpponentTeam": "Chile"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471fc"
+  },
+  "Date": "February 26, 2019",
+  "Result": ["2", "0"],
+  "Venue": "Bisham Abbey National Sports Centre; Bisham, England",
+  "Attendance": "",
+  "Goal Scorers": "Sentnor, Kroeger",
+  "OpponentTeam": "England",
+  "USTeam": "U-18 WNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471fd"
+  },
+  "Date": "February 23, 2019",
+  "Result": ["2", "2"],
+  "Venue": "Bisham Abbey National Sports Centre; Bisham, England",
+  "Attendance": "",
+  "Goal Scorers": "Sentnor, Matthews",
+  "OpponentTeam": "England",
+  "USTeam": "U-18 WNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471fe"
+  },
+  "Date": "March 1, 2019",
+  "Result": ["2", "3"],
+  "Venue": "La Manga Club; Cartagena, Spain",
+  "Attendance": "",
+  "Goal Scorers": "Meza, Canniff",
+  "OpponentTeam": "Germany U-19",
+  "USTeam": "U-20 WNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd471ff"
+  },
+  "Date": "March 2, 2019",
+  "Result": ["2", "2"],
+  "Venue": "Nissan Stadium; Nashville, Tenn.",
+  "Attendance": "22,125",
+  "Goal Scorers": "Rapinoe, Heath",
+  "OpponentTeam": "England",
+  "USTeam": "WNT",
+  "Competition": "SheBelieves Cup"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd47200"
+  },
+  "Date": "February 2, 2019",
+  "Result": ["2", "0"],
+  "Venue": "Avaya Stadium; San Jose, Calif.",
+  "Attendance": "13,656",
+  "Goal Scorers": "Lletget, Arriola",
+  "OpponentTeam": "Costa Rica",
+  "USTeam": "MNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd47201"
+  },
+  "Date": "February 27, 2019",
+  "Result": ["2", "2"],
+  "Venue": "Talen Energy Stadium; Chester, Pa.",
+  "Attendance": "14,555",
+  "Goal Scorers": "Rapinoe, Morgan",
+  "OpponentTeam": "Japan",
+  "USTeam": "WNT",
+  "Competition": "SheBelieves Cup"
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd47202"
+  },
+  "Date": "January 22, 2019",
+  "Result": ["1", "0"],
+  "Venue": "Estadio José Rico Perez; Alicante, Spain",
+  "Attendance": "9,182",
+  "Goal Scorers": "Press",
+  "OpponentTeam": "Spain",
+  "USTeam": "WNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd47203"
+  },
+  "Date": "January 27, 2019",
+  "Result": ["3", "0"],
+  "Venue": "State Farm Stadium; Glendale, Ariz.",
+  "Attendance": "9,040",
+  "Goal Scorers": "Mihailovic, Zimmerman, Ramirez",
+  "OpponentTeam": "Panama",
+  "USTeam": "MNT",
+  "Competition": ""
+}, {
+  "_id": {
+    "$oid": "5c92986cb65aacd0bfd47204"
+  },
+  "Date": "January 19, 2019",
+  "Result": ["1", "3"],
+  "Venue": "Stade Océane; Le Havre, France",
+  "Attendance": "22,780 (so)",
+  "Goal Scorers": "Pugh",
+  "OpponentTeam": "France",
+  "USTeam": "WNT",
+  "Competition": ""
+}]

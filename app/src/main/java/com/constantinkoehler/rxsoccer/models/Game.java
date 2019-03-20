@@ -63,6 +63,10 @@ public class Game implements Comparable<Game>, Serializable {
         this.date = date;
     }
 
+    public String getID() {
+        return oid.getId();
+    }
+
     public String getDate() {
         return date;
     }
@@ -175,6 +179,10 @@ class oid implements Serializable {
 
     public oid(String id) {
         this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }
 
