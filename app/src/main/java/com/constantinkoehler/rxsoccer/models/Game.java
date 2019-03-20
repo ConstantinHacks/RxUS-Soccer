@@ -159,7 +159,7 @@ public class Game implements Comparable<Game>, Serializable {
 
 }
 
-class oid {
+class oid implements Serializable {
     @SerializedName("$oid")
     private final String id;
 
@@ -168,7 +168,7 @@ class oid {
     }
 }
 
-class numberDouble {
+class numberDouble implements Serializable {
     @SerializedName("$numberDouble")
     private final double timeStamp;
 
