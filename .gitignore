@@ -71,3 +71,5 @@ fastlane/readme.md
 app/src/main/\.DS_Store
 
 app/src/main/res/drawable/\.DS_Store
+
+app/src/main/res/\.DS_Store

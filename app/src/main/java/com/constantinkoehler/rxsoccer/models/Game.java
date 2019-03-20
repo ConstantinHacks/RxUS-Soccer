@@ -1,8 +1,15 @@
 package com.constantinkoehler.rxsoccer.models;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Game implements Comparable<Game> {
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Game implements Comparable<Game>, Serializable {
     @SerializedName("_id")
     private final oid oid;
 
@@ -54,8 +61,15 @@ public class Game implements Comparable<Game> {
         this.goalScorers = goalScorers;
     }
 
-    public double getUnixTime(){
-        return nd.getTimeStamp();
+    public Date getDate(){
+        return new Date((long) getUnixTime());
+    }
+
+    public int flagResource(Context context){
+        String regexStr = " U-(\\d+)";
+        String flagName =  getOpponentTeam().replaceAll(regexStr,"").replace(" ","_").toLowerCase();
+
+        return context.getResources().getIdentifier(flagName, "drawable", context.getPackageName());
     }
 
     public numberDouble getNd() {
@@ -98,13 +112,37 @@ public class Game implements Comparable<Game> {
         return goalScorers;
     }
 
-    public String getOpponentCountryFlagName() {
-        String regexStr = " U-(\\d+)";
-        return getOpponentTeam().replaceAll(regexStr,"").replace(" ","_").toLowerCase();
-    }
-
     public boolean isMatchComplete() {
         return getResult().length != 0;
+    }
+
+    public String getDateString(){
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(getDate());
+    }
+
+    public String getTimeString(){
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        return timeFormat.format(getDate());
+    }
+
+    public double getUnixTime(){
+        return nd.getTimeStamp();
+    }
+
+    public String getResultString(){
+        if(isMatchComplete()){
+            return getScoreLine();
+        } else {
+            return getTimeString();
+        }
+    }
+
+    public String getScoreLine(){
+        String usScore = getResult().length != 0 ? String.valueOf(getResult()[0]) : "-";
+        String oppScore = getResult().length != 0 ? String.valueOf(getResult()[1]) : "-";
+
+        return String.format("%s : %s",usScore,oppScore);
     }
 
     @Override

@@ -1,12 +1,16 @@
 package com.constantinkoehler.rxsoccer.mainScreen;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.constantinkoehler.rxsoccer.adapters.GameAdapter;
 import com.constantinkoehler.rxsoccer.R;
+import com.constantinkoehler.rxsoccer.gameDetails.GameDetailsActivity;
 import com.constantinkoehler.rxsoccer.models.Game;
 import com.constantinkoehler.rxsoccer.networking.NetworkManager;
 import com.google.gson.Gson;
@@ -39,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getGamesList().observe(this, games -> {
             adapter.setGames(games);
             gamelist.setAdapter(adapter);
+            gamelist.setOnItemClickListener((parent, view, position, id) -> {
+                Game selectedGame = viewModel.getGameForIndex(position);
+                Intent intent = new Intent(MainActivity.this, GameDetailsActivity.class);
+                intent.putExtra(GameDetailsActivity.GAME_EXTRA, selectedGame);
+                startActivity(intent);
+            });
         });
     }
 

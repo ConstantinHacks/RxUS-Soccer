@@ -74,15 +74,8 @@ public class GameAdapter extends BaseAdapter {
         public void setGameInfo(Game game){
             usTeamNameTV.setText(game.getUsTeam());
             opponentTeamNameTV.setText(game.getOpponentTeam());
-
-            int resourceId = context.getResources().getIdentifier(game.getOpponentCountryFlagName(), "drawable", context.getPackageName());
-            Picasso.get().load(resourceId).into(opponentFlagIV);
-
-            String usScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[0]) : "-";
-            String oppScore = game.getResult().length != 0 ? String.valueOf(game.getResult()[1]) : "-";
-
-            String result = String.format("%s : %s",usScore,oppScore);
-            resultTV.setText(result);
+            Picasso.get().load(game.flagResource(context)).into(opponentFlagIV);
+            resultTV.setText(game.getScoreLine());
         }
 
     }

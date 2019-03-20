@@ -32,6 +32,10 @@ public class MainViewModel extends ViewModel {
         return gamesList;
     }
 
+    public Game getGameForIndex(int index){
+        return games.get(index);
+    }
+
     public void fetchGameData(){
         final Gson gson = new Gson();
 
