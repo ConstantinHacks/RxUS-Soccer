@@ -140,11 +140,8 @@
 
         <ImageView
             android:contentDescription="@string/add_to_cal"
-            android:background="@android:color/white"
             android:id="@+id/addToCal"
-            android:scaleType="fitXY"
-            android:padding="8dp"
-            android:src="@drawable/ic_bell"
+            android:src="@mipmap/ic_cal"
             android:layout_width="80dp"
             android:layout_height="80dp" />
 

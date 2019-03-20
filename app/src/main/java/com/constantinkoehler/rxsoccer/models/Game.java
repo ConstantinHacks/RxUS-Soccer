@@ -158,6 +158,10 @@ public class Game implements Comparable<Game>, Serializable {
         return String.format("%s : %s",usScore,oppScore);
     }
 
+    public String getGameCalTitle(){
+        return String.format("%s vs. %s",getUsTeam(),getOpponentTeam());
+    }
+
     @Override
     public int compareTo(Game o) {
         return this.getDateObject().compareTo(o.getDateObject());

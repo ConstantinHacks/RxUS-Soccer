@@ -10,7 +10,10 @@ import android.widget.Toast;
 
 import com.constantinkoehler.rxsoccer.R;
 import com.constantinkoehler.rxsoccer.models.Game;
+import com.constantinkoehler.rxsoccer.utils.CalendarUtil;
 import com.squareup.picasso.Picasso;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,9 +81,7 @@ public class GameDetailsActivity extends AppCompatActivity {
         }
 
         addToCallButton.setOnClickListener(v -> {
-            Toast.makeText(GameDetailsActivity.this,
-                    "Add To Calendar Clicked",
-                    Toast.LENGTH_LONG).show();
+            CalendarUtil.addGameToCalendar(game,GameDetailsActivity.this);
         });
 
     }
