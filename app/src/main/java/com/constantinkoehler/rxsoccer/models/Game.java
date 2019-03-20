@@ -6,8 +6,10 @@ import android.content.Context;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Game implements Comparable<Game>, Serializable {
     @SerializedName("_id")
@@ -31,6 +33,9 @@ public class Game implements Comparable<Game>, Serializable {
     @SerializedName("Time")
     private final String time;
 
+    @SerializedName("Date")
+    private final String date;
+
     @SerializedName("Attendance")
     private final String attendance;
 
@@ -43,11 +48,7 @@ public class Game implements Comparable<Game>, Serializable {
     @SerializedName("Goal Scorers")
     private final String goalScorers;
 
-    private String opponentCountry;
-
-    private boolean isMatchComplete;
-
-    public Game(com.constantinkoehler.rxsoccer.models.oid oid, numberDouble nd, String usTeam, String opponentTeam, String competition, String watch, String time, String attendance, int[] result, String venue, String goalScorers) {
+    public Game(com.constantinkoehler.rxsoccer.models.oid oid, numberDouble nd, String usTeam, String opponentTeam, String competition, String watch, String time, String attendance, int[] result, String venue, String goalScorers, String date) {
         this.oid = oid;
         this.nd = nd;
         this.usTeam = usTeam;
@@ -59,10 +60,25 @@ public class Game implements Comparable<Game>, Serializable {
         this.result = result;
         this.venue = venue;
         this.goalScorers = goalScorers;
+        this.date = date;
     }
 
-    public Date getDate(){
-        return new Date((long) getUnixTime());
+    public String getDate() {
+        return date;
+    }
+
+    public Date getDateObject(){
+        if(nd != null && getUnixTime() != 0){
+            return new Date((long) getUnixTime() * 1000);
+        } else {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+            try {
+                return dateFormat.parse(getDate());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     public int flagResource(Context context){
@@ -70,10 +86,6 @@ public class Game implements Comparable<Game>, Serializable {
         String flagName =  getOpponentTeam().replaceAll(regexStr,"").replace(" ","_").toLowerCase();
 
         return context.getResources().getIdentifier(flagName, "drawable", context.getPackageName());
-    }
-
-    public numberDouble getNd() {
-        return nd;
     }
 
     public String getUsTeam() {
@@ -116,17 +128,18 @@ public class Game implements Comparable<Game>, Serializable {
         return getResult().length != 0;
     }
 
-    public String getDateString(){
+    public String getFormattedDateString(){
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        return dateFormat.format(getDate());
+        return dateFormat.format(getDateObject());
     }
 
-    public String getTimeString(){
+    public String getFormattedTimeString(){
         @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        return timeFormat.format(getDate());
+        timeFormat.setTimeZone(TimeZone.getDefault());
+        return timeFormat.format(getDateObject());
     }
 
-    public double getUnixTime(){
+    public int getUnixTime(){
         return nd.getTimeStamp();
     }
 
@@ -134,7 +147,7 @@ public class Game implements Comparable<Game>, Serializable {
         if(isMatchComplete()){
             return getScoreLine();
         } else {
-            return getTimeString();
+            return getFormattedTimeString();
         }
     }
 
@@ -147,14 +160,7 @@ public class Game implements Comparable<Game>, Serializable {
 
     @Override
     public int compareTo(Game o) {
-        if(this.getNd() == null && o.getNd() != null){
-            return 1;
-        } else if(this.getNd() != null && o.getNd() == null){
-            return -1;
-        } else if(this.getNd() == null && o.getNd() == null){
-            return 0;
-        }
-        return (int) (o.getUnixTime() - this.getUnixTime());
+        return this.getDateObject().compareTo(o.getDateObject());
     }
 
 }
@@ -169,14 +175,14 @@ class oid implements Serializable {
 }
 
 class numberDouble implements Serializable {
-    @SerializedName("$numberDouble")
-    private final double timeStamp;
+    @SerializedName("$numberInt")
+    private final int timeStamp;
 
-    public numberDouble(double timeStamp) {
+    public numberDouble(int timeStamp) {
         this.timeStamp = timeStamp;
     }
 
-    public double getTimeStamp() {
+    public int getTimeStamp() {
         return timeStamp;
     }
 }

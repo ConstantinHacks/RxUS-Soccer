@@ -55,13 +55,13 @@ public class GameDetailsActivity extends AppCompatActivity {
     public void setUpView() {
         venueTextView.setText(game.getVenue());
 
-        if (TextUtils.isEmpty(game.getCompetition())) {
+        if (!TextUtils.isEmpty(game.getCompetition())) {
             competitionTextView.setText(game.getCompetition());
         } else {
             competitionTextView.setVisibility(View.GONE);
         }
 
-        dateTextView.setText(game.getDateString());
+        dateTextView.setText(game.getFormattedDateString());
 
         usTeamTextView.setText(game.getUsTeam());
 
@@ -72,6 +72,10 @@ public class GameDetailsActivity extends AppCompatActivity {
         scoreOrTimeTV.setText(game.getResultString());
 
         fullTimeOrKickoffTextView.setText(game.isMatchComplete() ? R.string.fulltime : R.string.kickoff);
+
+        if(game.isMatchComplete()){
+            addToCallButton.setVisibility(View.GONE);
+        }
 
         addToCallButton.setOnClickListener(v -> {
             Toast.makeText(GameDetailsActivity.this,

@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainViewModel extends ViewModel {
-    public List<Game> games;
+    public List<Game> games = new ArrayList<>();
     private MutableLiveData<List<Game>> gamesList;
     private String tag = "MainViewModel";
 
@@ -36,8 +37,20 @@ public class MainViewModel extends ViewModel {
         return games.get(index);
     }
 
+    public int getFirstUpcomingGame(){
+        int index = 0;
+        for (Game game: games) {
+            if(!game.isMatchComplete()){
+                return index;
+            }
+            index++;
+        }
+        return 0;
+    }
+
     public void fetchGameData(){
         final Gson gson = new Gson();
+        games.clear();
 
         NetworkManager.getGameData()
                 .subscribeOn(Schedulers.io())
