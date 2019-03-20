@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,8 +17,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameAdapter extends BaseAdapter {
+public class GameAdapter extends BaseAdapter implements Filterable {
 
+    private List<Game> allGames = new ArrayList<>();
     private List<Game> games = new ArrayList<>();
 
     @Override
@@ -55,6 +58,40 @@ public class GameAdapter extends BaseAdapter {
         games.addAll(gameList);
         notifyDataSetChanged();
     }
+
+    public void setAllGames(List<Game> gameList){
+        allGames.addAll(gameList);
+        setGames(gameList);
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults filterResults = new FilterResults();
+                ArrayList<Game> FilteredArrayGames = new ArrayList<Game>();
+                String constraintStr = constraint.toString().toLowerCase();
+                for (Game game: allGames) {
+                    if(constraintStr.equalsIgnoreCase("all") || game.getUsTeam().equalsIgnoreCase(constraintStr)){
+                        FilteredArrayGames.add(game);
+                    }
+                }
+
+                filterResults.count = FilteredArrayGames.size();
+                filterResults.values = FilteredArrayGames;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                games = (List<Game>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
 
     private static class GameViewHolder {
         private TextView usTeamNameTV;
