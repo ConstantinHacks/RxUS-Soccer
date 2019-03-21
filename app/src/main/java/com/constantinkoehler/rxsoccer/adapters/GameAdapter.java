@@ -126,7 +126,7 @@ public class GameAdapter extends BaseAdapter implements Filterable {
         public void setGameInfo(Game game){
             usTeamNameTV.setText(game.getUsTeam());
             opponentTeamNameTV.setText(game.getOpponentTeam());
-            Picasso.get().load(game.flagResource(context)).into(opponentFlagIV);
+            Picasso.get().load(game.getFlagResource(context)).into(opponentFlagIV);
             resultTV.setText(game.getScoreLine());
         }
 

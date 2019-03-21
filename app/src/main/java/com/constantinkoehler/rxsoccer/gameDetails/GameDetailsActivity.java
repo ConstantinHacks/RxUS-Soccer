@@ -6,14 +6,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.constantinkoehler.rxsoccer.R;
 import com.constantinkoehler.rxsoccer.models.Game;
 import com.constantinkoehler.rxsoccer.utils.CalendarUtil;
 import com.squareup.picasso.Picasso;
-
-import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,7 +67,7 @@ public class GameDetailsActivity extends AppCompatActivity {
 
         opponentTextView.setText(game.getOpponentTeam());
 
-        Picasso.get().load(game.flagResource(GameDetailsActivity.this)).into(opponentFlagView);
+        Picasso.get().load(game.getFlagResource(GameDetailsActivity.this)).into(opponentFlagView);
 
         scoreOrTimeTV.setText(game.getResultString());
 

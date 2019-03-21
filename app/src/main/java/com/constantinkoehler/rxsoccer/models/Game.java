@@ -71,27 +71,6 @@ public class Game implements Comparable<Game>, Serializable {
         return date;
     }
 
-    public Date getDateObject(){
-        if(nd != null && getUnixTime() != 0){
-            return new Date((long) getUnixTime() * 1000);
-        } else {
-            @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
-            try {
-                return dateFormat.parse(getDate());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    public int flagResource(Context context){
-        String regexStr = " U-(\\d+)";
-        String flagName =  getOpponentTeam().replaceAll(regexStr,"").replace(" ","_").toLowerCase();
-
-        return context.getResources().getIdentifier(flagName, "drawable", context.getPackageName());
-    }
-
     public String getUsTeam() {
         return usTeam;
     }
@@ -126,6 +105,27 @@ public class Game implements Comparable<Game>, Serializable {
 
     public String getGoalScorers() {
         return goalScorers;
+    }
+
+    public Date getDateObject(){
+        if(nd != null && getUnixTime() != 0){
+            return new Date((long) getUnixTime() * 1000);
+        } else {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+            try {
+                return dateFormat.parse(getDate());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public int getFlagResource(Context context){
+        String regexStr = " U-(\\d+)";
+        String flagName =  getOpponentTeam().replaceAll(regexStr,"").replace(" ","_").toLowerCase();
+
+        return context.getResources().getIdentifier(flagName, "drawable", context.getPackageName());
     }
 
     public boolean isMatchComplete() {

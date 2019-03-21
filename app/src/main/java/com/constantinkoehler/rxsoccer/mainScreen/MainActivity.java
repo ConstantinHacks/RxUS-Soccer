@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private GameAdapter adapter = new GameAdapter();
     private ListView gamelist;
     private FloatingActionButton filterButton;
-    private String tag = "MainActivity";
     private TextView headerTextView;
 
     @Override
