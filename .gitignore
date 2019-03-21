@@ -64,12 +64,12 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
-\.idea/modules\.xml
-
-\.idea/vcs\.xml
+\.idea/*
 
 app/src/main/\.DS_Store
 
 app/src/main/res/drawable/\.DS_Store
 
 app/src/main/res/\.DS_Store
+
+\.DS_Store
