@@ -2,6 +2,7 @@ package com.constantinkoehler.rxsoccer;
 
 import android.content.Context;
 
+import com.constantinkoehler.rxsoccer.adapters.GameAdapter;
 import com.constantinkoehler.rxsoccer.models.Game;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -75,5 +76,16 @@ public class ExampleInstrumentedTest {
         Collections.sort(games);
         assertTrue(games.get(0).isMatchComplete());
         assertFalse(games.get(games.size()-1).isMatchComplete());
+    }
+
+    @Test
+    public void testAdapter(){
+        List<Game> games = getGames();
+        Collections.sort(games);
+
+        GameAdapter adapter = new GameAdapter();
+        adapter.setAllGames(games);
+        assertEquals(adapter.getCount(),20);
+        assertEquals(adapter.getFirstUpcomingGame(),12);
     }
 }
