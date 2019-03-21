@@ -68,4 +68,12 @@ public class ExampleInstrumentedTest {
         assertEquals(games.get(0).getID(),"5c92986cb65aacd0bfd47204");
         assertEquals(games.get(games.size()-1).getID(),"5c92986cb65aacd0bfd471fb");
     }
+
+    @Test
+    public void testAttributes(){
+        List<Game> games = getGames();
+        Collections.sort(games);
+        assertTrue(games.get(0).isMatchComplete());
+        assertFalse(games.get(games.size()-1).isMatchComplete());
+    }
 }
