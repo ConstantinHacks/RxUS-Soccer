@@ -64,6 +64,21 @@ public class GameAdapter extends BaseAdapter implements Filterable {
         setGames(gameList);
     }
 
+    public Game getGameForIndex(int index){
+        return games.get(index);
+    }
+
+    public int getFirstUpcomingGame(){
+        int index = 0;
+        for (Game game: games) {
+            if(!game.isMatchComplete()){
+                return index;
+            }
+            index++;
+        }
+        return 0;
+    }
+
     @Override
     public Filter getFilter() {
         return new Filter() {

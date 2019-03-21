@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getGamesList().observe(this, games -> {
             adapter.setAllGames(games);
             gamelist.setAdapter(adapter);
-            gamelist.setSelection(viewModel.getFirstUpcomingGame());
+            gamelist.setSelection(adapter.getFirstUpcomingGame());
             gamelist.setOnItemClickListener((parent, view, position, id) -> {
-                Game selectedGame = viewModel.getGameForIndex(position);
+                Game selectedGame = adapter.getGameForIndex(position);
                 Intent intent = new Intent(MainActivity.this, GameDetailsActivity.class);
                 intent.putExtra(GameDetailsActivity.GAME_EXTRA, selectedGame);
                 startActivity(intent);
