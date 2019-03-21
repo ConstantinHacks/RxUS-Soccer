@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import okhttp3.Response;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -24,6 +26,12 @@ public class MainViewModel extends ViewModel {
     public List<Game> games = new ArrayList<>();
     private MutableLiveData<List<Game>> gamesList;
     private String tag = "MainViewModel";
+    private NetworkManager networkManager;
+
+    @Inject
+    public MainViewModel(NetworkManager networkManager) {
+        this.networkManager = networkManager;
+    }
 
     public MutableLiveData<List<Game>> getGamesList() {
         if (gamesList == null) {
@@ -52,7 +60,7 @@ public class MainViewModel extends ViewModel {
         final Gson gson = new Gson();
         games.clear();
 
-        NetworkManager.getGameData()
+        networkManager.getGameData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Response>() {

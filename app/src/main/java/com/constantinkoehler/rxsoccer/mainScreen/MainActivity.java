@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.constantinkoehler.rxsoccer.DaggerMainViewModelComponent;
+import com.constantinkoehler.rxsoccer.MainViewModelComponent;
 import com.constantinkoehler.rxsoccer.adapters.GameAdapter;
 import com.constantinkoehler.rxsoccer.R;
 import com.constantinkoehler.rxsoccer.gameDetails.GameDetailsActivity;
@@ -31,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewModel = new MainViewModel();
+
+        MainViewModelComponent component = DaggerMainViewModelComponent.create();
+        viewModel = component.getMainViewModel();
+
         gamelist = findViewById(R.id.gameList);
         filterButton = findViewById(R.id.filterButton);
         headerTextView = findViewById(R.id.headerTextView);

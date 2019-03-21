@@ -6,6 +6,8 @@ import com.constantinkoehler.rxsoccer.utils.Constants;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -13,7 +15,10 @@ import rx.Observable;
 
 public class NetworkManager {
 
-    public static Observable<Response> getGameData() {
+    @Inject
+    public NetworkManager() { }
+
+    public Observable<Response> getGameData() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         final OkHttpClient client = new OkHttpClient();
